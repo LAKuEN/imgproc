@@ -7,8 +7,8 @@ import numpy as np
 from imgproc import contour
 
 
-class TestGetFirstItemIndex:
-    """get_first_item_index() のテストケース."""
+class TestGetFirstItemIndexInTopLayer:
+    """get_first_item_index_in_top_layer() のテストケース."""
 
     hierarchy_a = np.array([[
         [1, -1, -1, -1],
@@ -34,7 +34,7 @@ class TestGetFirstItemIndex:
     @pytest.mark.parametrize("hierarchy, want", test_data)
     def test_normal(self, hierarchy, want):
         """正常系."""
-        got = contour.get_first_item_index(hierarchy)
+        got = contour.get_first_item_index_in_top_layer(hierarchy)
         assert want == got
 
 

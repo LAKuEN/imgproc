@@ -10,13 +10,12 @@ import numpy as np
 NEXT_INDEX, PREV_INDEX, FIRST_CHILD_INDEX, PARENT_INDEX = range(4)
 
 
-def get_first_item_index(hierarchy: [np.ndarray]) -> int:
+def get_first_item_index_in_top_layer(hierarchy: [np.ndarray]) -> int:
     """最上位の輪郭のindexを取得.
 
     cv2.RETR_TREEで取得した輪郭情報を入力として得る前提
     最も上位層の先頭の輪郭のindexを検索して返す
     """
-    # FIXME 関数名をより適したものに直す
     for i, h in enumerate(hierarchy[0]):
         if h[PREV_INDEX] == -1 and h[PARENT_INDEX] == -1:
             return i
